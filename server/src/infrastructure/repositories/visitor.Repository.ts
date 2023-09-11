@@ -4,6 +4,8 @@ class visitorRespository{
     public constructor(
         this.visitor = [];
     ){
-        public async save()
+        public async save(visitor: Visitor): Promise<void> {
+            const saveVisitor = this.visitor.find(a => a.getId() === visitor.getId());
+        }
     }
 }
