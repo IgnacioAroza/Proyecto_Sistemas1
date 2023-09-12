@@ -9,7 +9,7 @@ class Claim{
     private category:Category;
     private location:string;
     private createdAt:Date;
-    private cloneOf?:Claim;
+    private cloneOf:Claim;
 
     private constructor(
         id:string,

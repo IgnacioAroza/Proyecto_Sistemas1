@@ -13,7 +13,7 @@ class Visitor{
         this.nickname=nickname;
     }
 
-    public getId(){
+    public getId():string{
         return this.id;
     }
 }

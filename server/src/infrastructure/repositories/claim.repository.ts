@@ -1,7 +1,6 @@
 import Visitor from '../../domain/entities/visitor.entity';
 
 
-
 class ClaimRepository{
     private claims:Visitor[];
     public constructor() {
