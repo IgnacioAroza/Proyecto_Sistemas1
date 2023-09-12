@@ -1,3 +1,6 @@
+import Visitor from "./visitor.entity";
+import Category from "./category.entity";
+
 class Claim{
     private id:string;
     private owner:Visitor;
@@ -6,7 +9,7 @@ class Claim{
     private category:Category;
     private location:string;
     private createdAt:Date;
-    private cloneOf:?Claim;
+    private cloneOf: Claim;
 
     private constructor(
         id:string,
