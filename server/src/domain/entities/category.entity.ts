@@ -12,6 +12,10 @@ class Category{
         this.name=name;
         this.color=color;
     }
+
+    public getId():string{
+        return this.id;
+    }
 }
 
 export default Category;
