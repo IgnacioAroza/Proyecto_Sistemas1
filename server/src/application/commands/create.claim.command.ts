@@ -18,4 +18,20 @@ export class createClaimCommand {
         this.categoryId = categoryId;
         this.location = location;
     }
+
+    getOwner(): string{
+        return this.ownerId;
+    }
+    getTitle(): string{
+        return this.title;
+    }
+    getDescription(): string{
+        return this.description;
+    }
+    getCategory(): string{
+        return this.categoryId;
+    }
+    getLocation(): string{
+        return this.location;
+    }
 }
