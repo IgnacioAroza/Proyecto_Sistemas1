@@ -10,7 +10,7 @@ class CreateClaimAction {
         const command = new createClaimCommand(ownerId, title, description, categoryId, location);
         await createClaimHandler.execute(command);
   
-        return res.status(201).json({ message: 'Booking created successfully' });
+        return res.status(201).json({ message: 'Claim created successfully' });
       } catch (error) {
         const { message } = error as Error;
         res.status(400).json({ message: message });
