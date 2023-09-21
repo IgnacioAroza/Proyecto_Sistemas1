@@ -1,6 +1,6 @@
-/*
-import { createClaimCommand } from "../../application/commands/create.claim.command";
 import { Request, Response } from 'express';
+import { createClaimCommand } from "../../application/commands/create.claim.command";
+import createClaimHandler from '../../application/handlers/create.claim.handler';
 
 class CreateClaimAction {
     async run(req: Request, res: Response) {
@@ -8,7 +8,7 @@ class CreateClaimAction {
   
       try {
         const command = new createClaimCommand(ownerId, title, description, categoryId, location);
-        await CreateClaimHandler.execute(command);
+        await createClaimHandler.execute(command);
   
         return res.status(201).json({ message: 'Booking created successfully' });
       } catch (error) {
@@ -19,4 +19,3 @@ class CreateClaimAction {
   }
   
   export default new CreateClaimAction();
-  */
