@@ -1,6 +1,10 @@
+import Claim from '../../domain/entities/claim.entity';
 import Visitor from '../../domain/entities/visitor.entity';
 
-class ClaimRepository{
+export class ClaimRepository{
+  static save(Claim: Claim) {
+      throw new Error("Method not implemented.");
+  }
   private claims:Visitor[];
 
   public constructor() {

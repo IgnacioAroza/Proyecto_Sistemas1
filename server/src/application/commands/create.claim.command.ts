@@ -35,3 +35,5 @@ export class createClaimCommand {
         return this.location;
     }
 }
+
+export default createClaimCommand;
