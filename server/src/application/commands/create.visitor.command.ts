@@ -1,21 +1,18 @@
 export class createVisitorCommand{
 
-    private readonly id:string;
-    private readonly ip:string;
+    private readonly ipId:string;
     private readonly nickname:string;
 
     constructor(
-        id: string,
-        ip: string,
+        ipId: string,
         nickname: string,
     ){
-        this.id = id;
-        this.ip = ip;
+        this.ipId = ipId;
         this.nickname = nickname;
     }
 
     getIp(): string{
-        return this.ip;
+        return this.ipId;
     }
 
     getNickname(): string{
