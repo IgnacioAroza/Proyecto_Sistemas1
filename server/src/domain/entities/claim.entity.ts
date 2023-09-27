@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import Visitor from "./visitor.entity";
 import Category from "./category.entity";
 
@@ -9,7 +10,7 @@ class Claim{
     private category:Category;
     private location:string;
     private createdAt:Date;
-    private cloneOf: Claim;
+    private cloneOf?: Claim;
 
     private constructor(
         id:string,
@@ -29,6 +30,27 @@ class Claim{
         this.location = location;
         this.createdAt = createdAt;
         this.cloneOf = cloneOf;
+    }
+    
+    public static create(
+        owner: Visitor,
+        title: string,
+        description:string,
+        category:Category,
+        location:string,
+        createdAt:Date,
+        cloneOf:Claim,
+    ): Claim {
+        return new Claim(
+            v4(),
+            owner,
+            title,
+            description,
+            category,
+            location,
+            createdAt,
+            cloneOf
+        );
     }
 }
 

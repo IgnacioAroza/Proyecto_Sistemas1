@@ -56,9 +56,17 @@ class CreateClaimHandler {
             }
         }
 
-        //const claim = Claim()
+        // const claim = Claim.create(
+        //     owner,
+        //     title,
+        //     description,
+        //     category,
+        //     location,
+        //     createdAt,
+        //     cloneOf
+        // )
 
-        //await ClaimRepository.save();
+        //await ClaimRepository.save(claim);
     }
 }
 export default new CreateClaimHandler(
