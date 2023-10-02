@@ -62,8 +62,7 @@ class CreateClaimHandler {
         //     description,
         //     category,
         //     location,
-        //     createdAt,
-        //     cloneOf
+
         // )
 
         //await ClaimRepository.save(claim);
