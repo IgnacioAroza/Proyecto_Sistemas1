@@ -1,4 +1,4 @@
-export class createClaimCommand {
+class CreateClaimCommand {
     private readonly ownerId:string;
     private readonly title:string;
     private readonly description:string;
@@ -36,4 +36,4 @@ export class createClaimCommand {
     }
 }
 
-export default createClaimCommand;
+export default CreateClaimCommand;

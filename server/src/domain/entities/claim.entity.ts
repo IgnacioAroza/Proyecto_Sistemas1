@@ -1,4 +1,4 @@
-import { v4 } from 'uuid';
+//import { v4 } from 'uuid';
 import Visitor from "./visitor.entity";
 import Category from "./category.entity";
 
@@ -10,7 +10,7 @@ class Claim{
     private category:Category;
     private location:string;
     private createdAt:Date;
-    private cloneOf?: Claim;
+    private cloneOf: Claim | null;
 
     private constructor(
         id:string,
@@ -20,7 +20,7 @@ class Claim{
         category:Category,
         location:string,
         createdAt:Date,
-        cloneOf:Claim,
+        cloneOf:Claim | null,
     ){
         this.id = id;
         this.owner = owner;
@@ -37,9 +37,7 @@ class Claim{
         title: string,
         description:string,
         category:Category,
-        location:string,
-        createdAt:Date,
-        cloneOf:Claim,
+        location:string
     ): Claim {
         return new Claim(
             v4(),
@@ -48,9 +46,13 @@ class Claim{
             description,
             category,
             location,
-            createdAt,
-            cloneOf
+            new Date(),
+            null
         );
+    }
+
+    public getId():string{
+        return this.id;
     }
 }
 
