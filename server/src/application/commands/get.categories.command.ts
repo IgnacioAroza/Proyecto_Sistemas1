@@ -1,4 +1,4 @@
-export class getCategoriesCommand {
+class getCategoriesCommand {
     private readonly nameId:string;
     private readonly color:string;
 
@@ -17,3 +17,5 @@ export class getCategoriesCommand {
         return this.color;
     }
 }
+
+export default getCategoriesCommand;

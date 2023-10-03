@@ -1,13 +1,24 @@
 import Category from "../../domain/entities/category.entity";
-import categoryRepository from "../../infrastructure/repositories/category.repository";
-import { getCategoriesCommand } from "../commands/get.categories.command";
+import categoryRepository, { CategoryRespository } from "../../infrastructure/repositories/category.repository";
+import getCategoriesCommand from "../commands/get.categories.command";
 
 class GetCategoriesHandler {
-    async execute(command: getCategoriesCommand) {
-        if(!command.getName().includes(command.getColor())){
-            throw Error('Color must be in category list');
-        }
+    private categoryRepository: CategoryRespository;
+
+    public constructor(
+        categoryRepository: CategoryRespository,
+    ){
+        this.categoryRepository = categoryRepository;
     }
 
-    //const category = Category
+    public async excute(command: getCategoriesCommand): Promise<void>{
+        const category = Category.create(
+            command.getColor(),
+            command.getName()
+        )
+
+        await this.categoryRepository.save(category);
+    }
 }
+
+export default new GetCategoriesHandler(categoryRepository);
