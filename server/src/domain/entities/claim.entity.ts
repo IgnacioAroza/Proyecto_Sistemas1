@@ -54,6 +54,34 @@ class Claim{
     public getId():string{
         return this.id;
     }
+
+    public getOwner():Visitor{
+        return this.owner;
+    }
+
+    public getTitle():string{
+        return this.title;
+    }
+
+    public getDescripcion():string{
+        return this.description;
+    }
+
+    public getCategory():Category{
+        return this.category;
+    }
+
+    public getLocation():string{
+        return this.location;
+    }
+
+    public getCreatedAt():Date{
+        return this.createdAt;
+    }
+
+    public getCloneOf():Claim | null{
+        return this.cloneOf;
+    }
 }
 
 export default Claim;

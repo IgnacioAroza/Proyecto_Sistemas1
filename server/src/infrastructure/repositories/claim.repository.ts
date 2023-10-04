@@ -1,5 +1,4 @@
 import Claim from '../../domain/entities/claim.entity';
-import Visitor from '../../domain/entities/visitor.entity';
 
 export class ClaimRepository{
   private claims:Claim[];

@@ -29,6 +29,13 @@ class Category{
             color
         )
     }
+        public getName():string{
+        return this.name;
+    }
+
+    public getColor():string{
+        return this.color;
+    }
 }
 
 export default Category;
