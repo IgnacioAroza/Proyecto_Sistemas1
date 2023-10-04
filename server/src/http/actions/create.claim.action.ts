@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createClaimCommand } from "../../application/commands/create.claim.command";
+import createClaimCommand from "../../application/commands/create.claim.command";
 import createClaimHandler from '../../application/handlers/create.claim.handler';
 
 class CreateClaimAction {
@@ -13,7 +13,7 @@ class CreateClaimAction {
         return res.status(201).json({ message: 'Claim created successfully' });
       } catch (error) {
         const { message } = error as Error;
-        res.status(400).json({ message: message });
+        return res.status(400).json({ message: message });
       }
     }
   }
