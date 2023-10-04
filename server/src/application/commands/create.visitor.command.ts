@@ -1,4 +1,4 @@
-export class createVisitorCommand{
+class createVisitorCommand{
 
     private readonly ipId:string;
     private readonly nickname:string;
@@ -19,3 +19,4 @@ export class createVisitorCommand{
         return this.nickname;
     }
 }
+export default createVisitorCommand;
