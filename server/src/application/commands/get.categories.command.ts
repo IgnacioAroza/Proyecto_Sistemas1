@@ -1,19 +1,21 @@
-export class getCategoriesCommand {
-    private readonly name:string;
+class getCategoriesCommand {
+    private readonly nameId:string;
     private readonly color:string;
 
     constructor(
-        name: string,
+        nameId: string,
         color: string,
     ){
-        this.name = name;
+        this.nameId = nameId;
         this.color = color;
     }
 
     getName(): string{
-        return this.name;
+        return this.nameId;
     }
     getColor(): string{
         return this.color;
     }
 }
+
+export default getCategoriesCommand;
