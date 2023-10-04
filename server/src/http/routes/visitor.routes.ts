@@ -4,7 +4,7 @@ import createVisitorAction from '../actions/create.visitor.action';
 
 class VisitorRoutes extends CommonRoutes {
   public constructor(app: Application) {
-    super(app, 'Booking');
+    super(app, 'Visitor');
   }
 
   public setUpRoutes(): Application {
