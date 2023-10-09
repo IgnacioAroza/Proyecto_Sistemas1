@@ -5,12 +5,14 @@ import Category from "./category.entity";
 class Claim{
     private id:string;
     private owner:Visitor;
-    private title: string;
+    private title:string;
     private description:string;
     private category:Category;
     private location:string;
     private createdAt:Date;
     private cloneOf: Claim | null;
+    private likeCount: number | null;
+    private disLikeCount: number | null;
 
     private constructor(
         id:string,
@@ -21,6 +23,8 @@ class Claim{
         location:string,
         createdAt:Date,
         cloneOf:Claim | null,
+        likeCount: number | null,
+        disLikeCount: number | null,
     ){
         this.id = id;
         this.owner = owner;
@@ -30,6 +34,8 @@ class Claim{
         this.location = location;
         this.createdAt = createdAt;
         this.cloneOf = cloneOf;
+        this.likeCount = likeCount;
+        this.disLikeCount = disLikeCount;
     }
     
     public static create(
@@ -37,7 +43,7 @@ class Claim{
         title: string,
         description:string,
         category:Category,
-        location:string
+        location:string,
     ): Claim {
         return new Claim(
             v4(),
@@ -47,6 +53,8 @@ class Claim{
             category,
             location,
             new Date(),
+            null,
+            null,
             null
         );
     }
@@ -81,6 +89,14 @@ class Claim{
 
     public getCloneOf():Claim | null{
         return this.cloneOf;
+    }
+
+    public getLikeCount():number | null{
+        return this.likeCount;
+    }
+
+    public getDislikeCount():number | null{
+        return this.disLikeCount;
     }
 }
 
