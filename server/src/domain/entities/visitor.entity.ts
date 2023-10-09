@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 class Visitor{
     private id:string;
     private ip:string;
@@ -15,6 +17,25 @@ class Visitor{
 
     public getId():string{
         return this.id;
+    }
+
+    public getIp():string{
+        return this.ip;
+    }
+
+    public getNickname():string{
+        return this.nickname;
+    }
+
+    public static create(
+        ip: string,
+        nickname: string
+    ): Visitor {
+        return new Visitor(
+            v4(),
+            ip,
+            nickname
+        )
     }
 }
 

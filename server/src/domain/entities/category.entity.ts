@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 class Category{
     private id:string;
     private name:string;
@@ -15,6 +17,24 @@ class Category{
 
     public getId():string{
         return this.id;
+    }
+
+    public static create(
+        name: string,
+        color: string
+    ): Category{
+        return new Category(
+            v4(),
+            name,
+            color
+        )
+    }
+        public getName():string{
+        return this.name;
+    }
+
+    public getColor():string{
+        return this.color;
     }
 }
 
