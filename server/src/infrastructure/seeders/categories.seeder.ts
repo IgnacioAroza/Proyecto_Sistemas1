@@ -1,5 +1,5 @@
 import Category from "../../domain/entities/category.entity";
-import categoryRepository from "../../infrastructure/repositories/category.repository";
+import categoryRepository from "../repositories/category.repository";
 
 class CategoriesSeeder {
   private categories: Array<Category> = [];
