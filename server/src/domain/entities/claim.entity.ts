@@ -4,12 +4,14 @@ import Category from "./category.entity";
 class Claim{
     private id:string;
     private owner:Visitor;
-    private title: string;
+    private title:string;
     private description:string;
     private category:Category;
     private location:string;
     private createdAt:Date;
-    private cloneOf: Claim;
+    private cloneOf:Claim;
+    private likeCount:string;
+    private disLikeCount:string;
 
     private constructor(
         id:string,
@@ -20,6 +22,8 @@ class Claim{
         location:string,
         createdAt:Date,
         cloneOf:Claim,
+        likeCount: string,
+        disLikeCount: string,
     ){
         this.id = id;
         this.owner = owner;
@@ -29,6 +33,8 @@ class Claim{
         this.location = location;
         this.createdAt = createdAt;
         this.cloneOf = cloneOf;
+        this.likeCount = likeCount;
+        this.disLikeCount = disLikeCount;
     }
 }
 
