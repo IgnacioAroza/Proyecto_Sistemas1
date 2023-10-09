@@ -1,7 +1,7 @@
 import Claim from "../../domain/entities/claim.entity";
 import categoryRepository, { CategoryRespository } from "../../infrastructure/repositories/category.repository";
 import CreateClaimCommand  from "../commands/create.claim.command";
-import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.Repository";
+import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.repository";
 import claimRepository, { ClaimRepository } from "../../infrastructure/repositories/claim.repository";
 
 class CreateClaimHandler {

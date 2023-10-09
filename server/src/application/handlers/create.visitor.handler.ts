@@ -1,5 +1,5 @@
 import Visitor from "../../domain/entities/visitor.entity";
-import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.Repository";
+import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.repository";
 import { createVisitorCommand } from "../commands/create.visitor.command";
 
 class CreateVisitorHandler {
