@@ -1,20 +1,27 @@
 class CreateLikeCommand {
     private readonly ownerId:string;
-    private readonly likeCount:number | null;
+    private readonly likeCount:number;
+    private readonly pin: string;
 
     constructor(
         ownerId: string,
-        likeCount: number | null,
+        likeCount: number,
+        pin: string,
     ){
         this.ownerId = ownerId;
         this.likeCount = likeCount;
+        this.pin = pin;
     }
 
     getOwner(): string{
         return this.ownerId;
     }
     
-    getLikeCount(): number | null{
+    getPin(): string{
+        return this.pin;
+    }
+
+    getLike(): number{
         return this.likeCount;
     }
 }
