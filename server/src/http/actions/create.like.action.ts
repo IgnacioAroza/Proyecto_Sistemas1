@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
+import CreateLikeCommand from '../../application/commands/create.like.command';
+import CreateLikeHandler from '../../application/handlers/create.like.handler'
 
 class CreateLikeAction {
     async run(req: Request, res: Response){
-        const { likeCount, dislikeCount } = req.body;
+        const { ownerId, likeCount, pin, claimId } = req.body;
 
         try {
-            // const command = new createLikeCommand(likeCount, dislikeCount);
-            // await LikeHandler.execute(command);
+            const command = new CreateLikeCommand(ownerId, likeCount, pin, claimId);
+            await CreateLikeHandler.execute(command);
 
             return res.status(201).json({ message: 'Like created'});
         }catch (error) {

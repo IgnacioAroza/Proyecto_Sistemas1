@@ -11,8 +11,8 @@ class Claim{
     private location:string;
     private createdAt:Date;
     private cloneOf: Claim | null;
-    private likeCount: number | null;
-    private disLikeCount: number | null;
+    private likeCount: number;
+    private dislikeCount: number;
 
     private constructor(
         id:string,
@@ -23,8 +23,8 @@ class Claim{
         location:string,
         createdAt:Date,
         cloneOf:Claim | null,
-        likeCount: number | null,
-        disLikeCount: number | null,
+        likeCount: number,
+        dislikeCount: number,
     ){
         this.id = id;
         this.owner = owner;
@@ -35,7 +35,7 @@ class Claim{
         this.createdAt = createdAt;
         this.cloneOf = cloneOf;
         this.likeCount = likeCount;
-        this.disLikeCount = disLikeCount;
+        this.dislikeCount = dislikeCount;
     }
     
     public static create(
@@ -44,6 +44,8 @@ class Claim{
         description:string,
         category:Category,
         location:string,
+        likeCount:number,
+        dislikeCount: number,
     ): Claim {
         return new Claim(
             v4(),
@@ -54,8 +56,8 @@ class Claim{
             location,
             new Date(),
             null,
-            null,
-            null
+            likeCount,
+            dislikeCount
         );
     }
 
@@ -91,12 +93,12 @@ class Claim{
         return this.cloneOf;
     }
 
-    public getLikeCount():number | null{
-        return this.likeCount;
+    public addLike(): void {
+        this.likeCount++;
     }
 
-    public getDislikeCount():number | null{
-        return this.disLikeCount;
+    public addDislike(): void {
+        this.dislikeCount++;
     }
 }
 
