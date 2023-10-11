@@ -14,7 +14,7 @@ class CreateLikeHandler {
         this.claimRepository = claimRepository;
     }
 
-    public async excute(command: CreateLikeCommand): Promise<void> {
+    public async execute(command: CreateLikeCommand): Promise<void> {
         const ownerId = await this.visitorRepository.findOneById(command.getOwner());
         if (!ownerId) {
             throw new Error('Owner does not exist');
