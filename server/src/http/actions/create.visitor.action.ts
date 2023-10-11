@@ -4,10 +4,10 @@ import createVisitorgHandler from '../../application/handlers/create.visitor.han
 
 class CreateVisitorAction {
   async run(req: Request, res: Response) {
-    const { ipId, nickname} = req.body;
+    const { ipId, nickname, pin} = req.body;
 
     try {
-      const command = new CreateVisitorCommand(ipId, nickname);
+      const command = new CreateVisitorCommand(ipId, nickname, pin);
       await createVisitorgHandler.execute(command);
 
       return res.status(201).json({ message: 'Visitor created successfully' });
