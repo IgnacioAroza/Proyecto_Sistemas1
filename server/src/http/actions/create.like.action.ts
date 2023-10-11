@@ -13,7 +13,7 @@ class CreateLikeAction {
             return res.status(201).json({ message: 'Like created'});
         }catch (error) {
             const { message } = error as Error;
-            res.status(400).json({ message: message });
+            return res.status(400).json({ message: message });
         }
     }
 }
