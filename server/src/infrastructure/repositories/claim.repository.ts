@@ -19,7 +19,6 @@ export class ClaimRepository{
 
   public async findOneById(id: string): Promise<Claim | null> {
     const claim = this.claims.find(a => a.getId() === id);
-        
     return claim ? claim : null;
   }
 }

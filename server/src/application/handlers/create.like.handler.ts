@@ -1,6 +1,6 @@
 import CreateLikeCommand from "application/commands/create.like.command";
-import { ClaimRepository } from "infrastructure/repositories/claim.repository";
-import { VisitorRespository } from "infrastructure/repositories/visitor.repository";
+import claimRepository, { ClaimRepository } from "infrastructure/repositories/claim.repository";
+import visitorRepository, { VisitorRespository } from "infrastructure/repositories/visitor.repository";
 
 class CreateLikeHandler {
     private visitorRepository: VisitorRespository;
@@ -20,6 +20,17 @@ class CreateLikeHandler {
             throw new Error('Owner does not exist');
         }
 
-        // if(ownerId === command.getPin()){}
+        if(ownerId.pinMatch(command.getPin())){
+            const claim = await this.claimRepository.findOneById(command.getClaim());
+            claim?.addLike();
+            if(claim != null){
+                await this.claimRepository.save(claim);
+            }
+        }
+        else{
+            throw new Error('Pin does not match');
+        }
     }
 }
+
+export default new CreateLikeHandler(visitorRepository, claimRepository);

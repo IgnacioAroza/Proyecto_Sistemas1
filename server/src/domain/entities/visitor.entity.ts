@@ -34,6 +34,10 @@ class Visitor{
         return this.pin;
     }
 
+    public pinMatch(pin:string):boolean{
+        return this.pin == pin;
+    }
+
     public static create(
         ip: string,
         nickname: string,
