@@ -1,5 +1,5 @@
 import Visitor from "../../domain/entities/visitor.entity";
-import visitorRepository from "../repositories/visitor.repository";
+import visitorRepository from "../repositories/visitor.Repository";
 
 class VisitorSeeder {
   private visitors: Array<Visitor> = [];
