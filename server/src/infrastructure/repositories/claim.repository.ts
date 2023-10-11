@@ -1,25 +1,24 @@
-import Visitor from '../../domain/entities/visitor.entity';
+import Claim from '../../domain/entities/claim.entity';
 
-class ClaimRepository{
-  private claims:Visitor[];
+export class ClaimRepository{
+  private claims:Claim[];
 
   public constructor() {
     this.claims = [];
   }
 
-  public async save(visitor: Visitor): Promise<void> {
-    const saveVisitor = this.claims.find(a => a.getId() === visitor.getId());
+  public async save(claim: Claim): Promise<void> {
+    const saveClaim = this.claims.find(a => a.getId() === claim.getId());
     
-    if (saveVisitor) {
-      this.claims.splice(this.claims.indexOf(saveVisitor), 1);
+    if (saveClaim) {
+      this.claims.splice(this.claims.indexOf(saveClaim), 1);
     }
         
-    this.claims.push(visitor);
+    this.claims.push(claim);
   }
 
-  public async findOneById(id: string): Promise<Visitor | null> {
+  public async findOneById(id: string): Promise<Claim | null> {
     const claim = this.claims.find(a => a.getId() === id);
-        
     return claim ? claim : null;
   }
 }
