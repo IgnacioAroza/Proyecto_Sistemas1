@@ -100,6 +100,14 @@ class Claim{
     public addDislike(): void {
         this.dislikeCount++;
     }
+
+    public getLike(): number{
+        return this.likeCount;
+    }
+
+    public getDislike(): number{
+        return this.dislikeCount;
+    }
 }
 
 export default Claim;
