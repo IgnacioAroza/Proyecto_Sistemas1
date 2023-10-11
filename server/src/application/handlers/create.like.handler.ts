@@ -20,16 +20,18 @@ class CreateLikeHandler {
             throw new Error('Owner does not exist');
         }
 
-        if(ownerId.pinMatch(command.getPin())){
-            const claim = await this.claimRepository.findOneById(command.getClaim());
-            claim?.addLike();
-            if(claim != null){
-                await this.claimRepository.save(claim);
-            }
-        }
-        else{
+        if (!ownerId.pinMatch(command.getPin())) {
             throw new Error('Pin does not match');
         }
+    
+        const claim = await this.claimRepository.findOneById(command.getClaim());
+    
+        if (!claim) {
+            throw new Error('Claim not found');
+        }
+    
+        claim.addLike();
+        await this.claimRepository.save(claim);
     }
 }
 
