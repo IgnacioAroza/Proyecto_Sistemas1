@@ -1,6 +1,6 @@
 import Claim from '../../domain/entities/claim.entity';
 
-export class ClaimRepository{
+class ClaimRepository{
   private claims:Claim[];
 
   public constructor() {
@@ -23,6 +23,7 @@ export class ClaimRepository{
   }
 }
 
+export{ClaimRepository};
 export default new ClaimRepository();
 
 

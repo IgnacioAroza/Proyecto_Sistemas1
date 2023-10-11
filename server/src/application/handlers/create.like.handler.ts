@@ -1,6 +1,6 @@
 import CreateLikeCommand from "application/commands/create.like.command";
 import claimRepository, { ClaimRepository } from "infrastructure/repositories/claim.repository";
-import visitorRepository, { VisitorRespository } from "infrastructure/repositories/visitor.repository";
+import visitorRepository, { VisitorRespository } from "infrastructure/repositories/visitor.Repository";
 
 class CreateLikeHandler {
     private visitorRepository: VisitorRespository;
