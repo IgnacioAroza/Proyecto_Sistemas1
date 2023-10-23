@@ -21,6 +21,17 @@ class ClaimRepository{
     const claim = this.claims.find(a => a.getId() === id);
     return claim ? claim : null;
   }
+
+  public async onFireLastHour(): Promise<Array<Claim>> {
+    let lastHour = new Date;
+    lastHour.setHours(lastHour.getHours() - 1);
+
+    const recentClaims = this.claims.filter(claim => claim.getCreatedAt() >= lastHour);
+
+    recentClaims.sort((a, b) => b.getLike() - a.getLike());
+    
+    return recentClaims.slice(0, 4);
+  }
 }
 
 export{ClaimRepository};
