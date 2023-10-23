@@ -82,6 +82,25 @@ class Claim{
     public getCloneOf():Claim | null{
         return this.cloneOf;
     }
+<<<<<<< HEAD
+=======
+
+    public addLike(): void {
+        this.likeCount++;
+    }
+
+    public addDislike(): void {
+        this.dislikeCount++;
+    }
+
+    public getLike(): number{
+        return this.likeCount;
+    }
+
+    public getDislike(): number{
+        return this.dislikeCount;
+    }
+>>>>>>> 42f4dd462a2dfbfb16de1e13ae090358a74161f2
 }
 
 export default Claim;

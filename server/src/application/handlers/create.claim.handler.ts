@@ -1,7 +1,7 @@
 import Claim from "../../domain/entities/claim.entity";
 import categoryRepository, { CategoryRespository } from "../../infrastructure/repositories/category.repository";
 import CreateClaimCommand  from "../commands/create.claim.command";
-import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.repository";
+import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.Repository";
 import claimRepository, { ClaimRepository } from "../../infrastructure/repositories/claim.repository";
 
 class CreateClaimHandler {
@@ -33,12 +33,16 @@ class CreateClaimHandler {
             throw new Error('Category does not exist');
         }
 
+        
+
         const claim = Claim.create(
             owner,
             command.getTitle(),
             command.getDescription(),
             category,
             command.getLocation(),
+            command.getLike(),
+            command.getDislike()
         )
 
         await this.claimRepository.save(claim);

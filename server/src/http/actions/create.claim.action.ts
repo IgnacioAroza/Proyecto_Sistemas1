@@ -4,10 +4,10 @@ import createClaimHandler from '../../application/handlers/create.claim.handler'
 
 class CreateClaimAction {
     async run(req: Request, res: Response) {
-      const { ownerId, title, description, categoryId, location } = req.body;
+      const { ownerId, title, description, categoryId, location, likeCount, dislikeCount } = req.body;
   
       try {
-        const command = new createClaimCommand(ownerId, title, description, categoryId, location);
+        const command = new createClaimCommand(ownerId, title, description, categoryId, location, likeCount, dislikeCount);
         await createClaimHandler.execute(command);
   
         return res.status(201).json({ message: 'Claim created successfully' });

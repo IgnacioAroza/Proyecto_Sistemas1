@@ -11,7 +11,7 @@ class GetCategoriesHandler {
         this.categoryRepository = categoryRepository;
     }
 
-    public async excute(command: getCategoriesCommand): Promise<void>{
+    public async execute(command: getCategoriesCommand): Promise<void>{
         const category = Category.create(
             command.getColor(),
             command.getName()
