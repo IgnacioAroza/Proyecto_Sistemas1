@@ -117,7 +117,6 @@ class Claim {
       throw new Error('Original claim is older than duplicated claim');
     }
   }
-  
 }
 
 export default Claim;
