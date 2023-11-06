@@ -111,6 +111,13 @@ class Claim {
   hasVisitorLiked(id: string) {
     return this.likeCount.includes(id);
   }
+
+  report(originalClaim: Claim) {
+    if (this.createdAt.getTime() < originalClaim.createdAt.getTime()) {
+      throw new Error('Original claim is older than duplicated claim');
+    }
+  }
+  
 }
 
 export default Claim;

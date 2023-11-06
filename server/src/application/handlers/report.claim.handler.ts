@@ -1,15 +1,15 @@
-import claimRepository, {ClaimRepository} from "../../../infrastructure/repositories/claim.repository";
+import claimRepository, {ClaimRepository} from "infrastructure/repositories/claim.repository";
 import {ReportClaimCommand} from "../../application/commands/report.claim.command"
 
 
-export class ReportClaimCommand {
+export class ReportClaimHandler {
 
   constructor(
     private claimRepository: ClaimRepository,
   ) {
   }
 
-  public async handle(command: ReportClaimCommand): Promise<void> {
+  public async execute(command: ReportClaimCommand): Promise<void> {
 
     const duplicatedClaim = await this.claimRepository.findOneById(command.getId());
 
@@ -27,4 +27,4 @@ export class ReportClaimCommand {
   }
 }
 
-export default new ReportClaimCommand(claimRepository)
+export default new ReportClaimHandler(claimRepository)
