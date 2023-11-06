@@ -1,113 +1,116 @@
-import { v4 } from 'uuid';
+import {v4} from 'uuid';
 import Visitor from "./visitor.entity";
 import Category from "./category.entity";
 
-class Claim{
-    private id:string;
-    private owner:Visitor;
-    private title:string;
-    private description:string;
-    private category:Category;
-    private location:string;
-    private createdAt:Date;
-    private cloneOf: Claim | null;
-    private likeCount: number;
-    private dislikeCount: number;
+class Claim {
+  private id: string;
+  private owner: Visitor;
+  private title: string;
+  private description: string;
+  private category: Category;
+  private location: string;
+  private createdAt: Date;
+  private cloneOf: Claim | null;
+  private likeCount: string[];
+  private dislikeCount: string[];
 
-    private constructor(
-        id:string,
-        owner:Visitor,
-        title: string,
-        description:string,
-        category:Category,
-        location:string,
-        createdAt:Date,
-        cloneOf:Claim | null,
-        likeCount: number,
-        dislikeCount: number,
-    ){
-        this.id = id;
-        this.owner = owner;
-        this.title = title;
-        this.description = description;
-        this.category = category;
-        this.location = location;
-        this.createdAt = createdAt;
-        this.cloneOf = cloneOf;
-        this.likeCount = likeCount;
-        this.dislikeCount = dislikeCount;
-    }
-    
-    public static create(
-        owner: Visitor,
-        title: string,
-        description:string,
-        category:Category,
-        location:string,
-        likeCount:number,
-        dislikeCount: number,
-    ): Claim {
-        return new Claim(
-            v4(),
-            owner,
-            title,
-            description,
-            category,
-            location,
-            new Date(),
-            null,
-            likeCount,
-            dislikeCount
-        );
-    }
+  private constructor(
+    id: string,
+    owner: Visitor,
+    title: string,
+    description: string,
+    category: Category,
+    location: string,
+    createdAt: Date,
+    cloneOf: Claim | null,
+  ) {
+    this.id = id;
+    this.owner = owner;
+    this.title = title;
+    this.description = description;
+    this.category = category;
+    this.location = location;
+    this.createdAt = createdAt;
+    this.cloneOf = cloneOf;
+    this.likeCount = [];
+    this.dislikeCount = [];
+  }
 
-    public getId():string{
-        return this.id;
-    }
+  public static create(
+    owner: Visitor,
+    title: string,
+    description: string,
+    category: Category,
+    location: string,
+  ): Claim {
+    return new Claim(
+      v4(),
+      owner,
+      title,
+      description,
+      category,
+      location,
+      new Date(),
+      null,
+    );
+  }
 
-    public getOwner():Visitor{
-        return this.owner;
-    }
+  public getId(): string {
+    return this.id;
+  }
 
-    public getTitle():string{
-        return this.title;
-    }
+  public getOwner(): Visitor {
+    return this.owner;
+  }
 
-    public getDescripcion():string{
-        return this.description;
-    }
+  public getTitle(): string {
+    return this.title;
+  }
 
-    public getCategory():Category{
-        return this.category;
-    }
+  public getDescripcion(): string {
+    return this.description;
+  }
 
-    public getLocation():string{
-        return this.location;
-    }
+  public getCategory(): Category {
+    return this.category;
+  }
 
-    public getCreatedAt():Date{
-        return this.createdAt;
-    }
+  public getLocation(): string {
+    return this.location;
+  }
 
-    public getCloneOf():Claim | null{
-        return this.cloneOf;
-    }
+  public getCreatedAt(): Date {
+    return this.createdAt;
+  }
 
-    public addLike(): void {
-        this.likeCount++;
-    }
+  public getCloneOf(): Claim | null {
+    return this.cloneOf;
+  }
 
-    public addDislike(): void {
-        this.dislikeCount++;
+  public addLike(id: string): void {
+    if (this.hasVisitorLiked(id)) {
+      throw new Error('Visitor has already liked this claim.')
     }
+    this.likeCount.push(id)
+  }
 
-    public getLike(): number{
-        return this.likeCount;
-    }
+  public addDislike(id: string): void {
 
-    public getDislike(): number{
-        return this.dislikeCount;
-    }
+    this.dislikeCount.push(id)
+  }
+
+  public getLike(): number {
+    return this.likeCount.length;
+  }
+
+  public getDislike(): number {
+    return this.dislikeCount.length;
+  }
+
+
+  hasVisitorLiked(id: string) {
+    return this.likeCount.includes(id);
+  }
 }
 
 export default Claim;
