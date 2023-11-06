@@ -1,5 +1,5 @@
 import claimRepository, {ClaimRepository} from "infrastructure/repositories/claim.repository";
-import {ReportClaimCommand} from "../../application/commands/report.claim.command"
+import { ReportClaimCommand } from "../../application/commands/report.claim.command";
 
 
 export class ReportClaimHandler {
@@ -23,7 +23,7 @@ export class ReportClaimHandler {
       throw new Error('Claim not found');
     }
 
-    duplicatedClaim.report(originalClaim);
+    //duplicatedClaim.report(originalClaim);
   }
 }
 
