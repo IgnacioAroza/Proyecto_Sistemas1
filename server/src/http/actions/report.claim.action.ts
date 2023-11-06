@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import reportClaimCommand  from "../../application/commands/report.claim.command";
+import { ReportClaimCommand } from 'application/commands/report.claim.command';
 import reportClaimHandler  from '../../application/handlers/report.claim.handler';
 
 class ReportClaimAction {
@@ -7,7 +7,7 @@ class ReportClaimAction {
       const { id, originalId } = req.body;
   
       try {
-        const command = new reportClaimCommand(id, originalId);
+        const command = new ReportClaimCommand(id, originalId);
         await reportClaimHandler.execute(command);
   
         return res.status(201).json({ message: 'Claim created successfully' });

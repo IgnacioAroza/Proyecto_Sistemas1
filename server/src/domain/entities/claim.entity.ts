@@ -2,7 +2,6 @@ import {v4} from 'uuid';
 import Visitor from "./visitor.entity";
 import Category from "./category.entity";
 
-<<<<<<< HEAD
 class Claim{
     private id:string;
     private owner:Visitor;
@@ -51,41 +50,6 @@ class Claim{
             null
         );
     }
-=======
-class Claim {
-  private id: string;
-  private owner: Visitor;
-  private title: string;
-  private description: string;
-  private category: Category;
-  private location: string;
-  private createdAt: Date;
-  private cloneOf: Claim | null;
-  private likeCount: string[];
-  private dislikeCount: string[];
-
-  private constructor(
-    id: string,
-    owner: Visitor,
-    title: string,
-    description: string,
-    category: Category,
-    location: string,
-    createdAt: Date,
-    cloneOf: Claim | null,
-  ) {
-    this.id = id;
-    this.owner = owner;
-    this.title = title;
-    this.description = description;
-    this.category = category;
-    this.location = location;
-    this.createdAt = createdAt;
-    this.cloneOf = cloneOf;
-    this.likeCount = [];
-    this.dislikeCount = [];
-  }
->>>>>>> 439e18a0feb331b2cff3838a7ca6b19fc0f3b3a5
 
   public static create(
     owner: Visitor,
@@ -130,11 +94,9 @@ class Claim {
     return this.location;
   }
 
-<<<<<<< HEAD
     public getCloneOf():Claim | null{
         return this.cloneOf;
     }
-=======
   public getCreatedAt(): Date {
     return this.createdAt;
   }
@@ -167,7 +129,13 @@ class Claim {
   hasVisitorLiked(id: string) {
     return this.likeCount.includes(id);
   }
->>>>>>> 439e18a0feb331b2cff3838a7ca6b19fc0f3b3a5
+
+  report(originalClaim: Claim) {
+    if (this.createdAt.getTime() < originalClaim.createdAt.getTime()) {
+      throw new Error('Original claim is older than duplicated claim');
+    }
+  }
+ 
 }
 
 export default Claim;

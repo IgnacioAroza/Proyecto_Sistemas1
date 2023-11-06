@@ -9,7 +9,7 @@ export class ReportClaimHandler {
   ) {
   }
 
-  public async handle(command: ReportClaimCommand): Promise<void> {
+  public async execute(command: ReportClaimCommand): Promise<void> {
 
     const duplicatedClaim = await this.claimRepository.findOneById(command.getId());
 
