@@ -1,13 +1,13 @@
 import CreateDislikeCommand from "application/commands/create.dislike.command";
 import claimRepository, { ClaimRepository } from "infrastructure/repositories/claim.repository";
-import visitorRepository, { VisitorRepository } from "infrastructure/repositories/visitor.Repository";
+import visitorRepository, { VisitorRespository } from "infrastructure/repositories/visitor.Repository";
 
 class CreateDislikeHandler {
-    private visitorRepository: VisitorRepository;
+    private visitorRepository: VisitorRespository;
     private claimRepository: ClaimRepository;
 
     public constructor(
-        visitorRepository: VisitorRepository,
+        visitorRepository: VisitorRespository,
         claimRepository: ClaimRepository,
     ){
         this.visitorRepository = visitorRepository;
