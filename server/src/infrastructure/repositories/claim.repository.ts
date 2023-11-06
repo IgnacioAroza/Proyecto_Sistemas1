@@ -1,3 +1,4 @@
+import Visitor from 'domain/entities/visitor.entity';
 import Claim from '../../domain/entities/claim.entity';
 
 class ClaimRepository{
@@ -40,9 +41,9 @@ class ClaimRepository{
     return orderClaims;
   }
 
-  public async listLastFiveClaimsByVisitor(claim: Claim): Promise<Array<Claim>| null> {
+  public async listLastFiveClaimsByVisitor(visitor : Visitor): Promise<Array<Claim>| null> {
     this.claims.forEach( e => {
-      if(claim.getOwner().getId() == e.getOwner().getId()){
+      if(visitor.getId() == e.getOwner().getId()){
         return this.claims.slice(-5);
       }
       else{

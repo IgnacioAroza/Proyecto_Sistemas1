@@ -1,8 +1,8 @@
-import { Response } from "express";
+import {Request, Response } from "express";
 import claimRepository from "../../infrastructure/repositories/claim.repository";
 
 class getOnFireClaimAction {
-  public async run(res: Response) {
+  public async run(_req: Request, res: Response) {
     try {
       const onFireClaims = await claimRepository.onFireLastHour();
 
