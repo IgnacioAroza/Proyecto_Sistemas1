@@ -1,17 +1,17 @@
 import Claim from "../../domain/entities/claim.entity";
 import categoryRepository, { CategoryRespository } from "../../infrastructure/repositories/category.repository";
 import CreateClaimCommand  from "../commands/create.claim.command";
-import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.Repository";
+import visitorRepository, { VisitorRepository } from "../../infrastructure/repositories/visitor.Repository";
 import claimRepository, { ClaimRepository } from "../../infrastructure/repositories/claim.repository";
 
 class CreateClaimHandler {
     private claimRepository: ClaimRepository;
-    private visitorRepository: VisitorRespository;
+    private visitorRepository: VisitorRepository;
     private categoryRepository: CategoryRespository
     
     public constructor(
         claimRepository: ClaimRepository,
-        visitorRepository: VisitorRespository,
+        visitorRepository: VisitorRepository,
         categoryRepository: CategoryRespository
         ){
         this.claimRepository = claimRepository;
