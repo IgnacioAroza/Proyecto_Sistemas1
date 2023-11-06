@@ -1,8 +1,8 @@
-import claimRepository, {ClaimRepository} from "../../../infrastructure/repositories/claim.repository";
-import {ReportClaimCommand} from "../../application/commands/report.claim.command"
+import claimRepository, {ClaimRepository} from "infrastructure/repositories/claim.repository";
+import { ReportClaimCommand } from "../../application/commands/report.claim.command";
 
 
-export class ReportClaimCommand {
+export class ReportClaimHandler {
 
   constructor(
     private claimRepository: ClaimRepository,
@@ -27,4 +27,4 @@ export class ReportClaimCommand {
   }
 }
 
-export default new ReportClaimCommand(claimRepository)
+export default new ReportClaimHandler(claimRepository)
