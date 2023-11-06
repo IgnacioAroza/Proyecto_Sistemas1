@@ -1,13 +1,13 @@
-import CreateLikeCommand from "../commands/create.like.command";
-import claimRepository, { ClaimRepository } from "../../infrastructure/repositories/claim.repository";
-import visitorRepository, { VisitorRepository } from "../../infrastructure/repositories/visitor.Repository";
+import CreateLikeCommand from "application/commands/create.like.command";
+import claimRepository, { ClaimRepository } from "infrastructure/repositories/claim.repository";
+import visitorRepository, { VisitorRespository } from "infrastructure/repositories/visitor.Repository";
 
-export class CreateLikeHandler {
-    private visitorRepository: VisitorRepository;
+class CreateLikeHandler {
+    private visitorRepository: VisitorRespository;
     private claimRepository: ClaimRepository;
 
     public constructor(
-        visitorRepository: VisitorRepository,
+        visitorRepository: VisitorRespository,
         claimRepository: ClaimRepository,
     ){
         this.visitorRepository = visitorRepository;
@@ -15,13 +15,12 @@ export class CreateLikeHandler {
     }
 
     public async execute(command: CreateLikeCommand): Promise<void> {
-        const owner = await this.visitorRepository.findOneById(command.getOwner());
-
-        if (!owner) {
+        const ownerId = await this.visitorRepository.findOneById(command.getOwner());
+        if (!ownerId) {
             throw new Error('Owner does not exist');
         }
 
-        if (!owner.pinMatch(command.getPin())) {
+        if (!ownerId.pinMatch(command.getPin())) {
             throw new Error('Pin does not match');
         }
     
@@ -31,8 +30,7 @@ export class CreateLikeHandler {
             throw new Error('Claim not found');
         }
     
-        claim.addLike(command.getOwner());
-
+        claim.addLike();
         await this.claimRepository.save(claim);
     }
 }
