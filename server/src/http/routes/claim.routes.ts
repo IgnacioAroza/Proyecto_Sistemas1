@@ -1,6 +1,10 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
 import createClaimAction from '../actions/create.claim.action';
+import createLikeAction from 'http/actions/create.like.action';
+import getLastClaimsByVisitorAction from 'http/actions/get.last.claims.by.visitor.action';
+import findLastClaimsAction from 'http/actions/find.last.claims.action';
+import getOnfireclaimAction from 'http/actions/get.onfireclaim.action';
 
 class ClaimRoutes extends CommonRoutes {
   public constructor(app: Application) {
@@ -9,7 +13,11 @@ class ClaimRoutes extends CommonRoutes {
 
   public setUpRoutes(): Application {
     this.app.post('/claim', createClaimAction.run);
-
+    this.app.put('claim/:id/like', createLikeAction.run);
+    this.app.get('/claim/visitor/:visitorId', getLastClaimsByVisitorAction.run);
+    this.app.get('cliam', findLastClaimsAction.run);
+    this.app.get('/claim/on-fire', getOnfireclaimAction.run);
+    
     return this.app;
   }
 }
