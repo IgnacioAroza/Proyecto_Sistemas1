@@ -23,7 +23,7 @@ export class ReportClaimHandler {
       throw new Error('Claim not found');
     }
 
-    duplicatedClaim.report(originalClaim);
+    //duplicatedClaim.report(originalClaim);
   }
 }
 
