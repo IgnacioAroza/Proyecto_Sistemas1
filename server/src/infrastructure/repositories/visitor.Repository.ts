@@ -1,6 +1,6 @@
 import Visitor from "../../domain/entities/visitor.entity";
 
-class VisitorRespository{
+class VisitorRepository {
     private visitor: Visitor[];
 
     public constructor(){
@@ -22,5 +22,5 @@ class VisitorRespository{
     }
 }
 
-export{VisitorRespository};
-export default new VisitorRespository();
+export{VisitorRepository};
+export default new VisitorRepository();

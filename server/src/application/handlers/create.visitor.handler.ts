@@ -1,12 +1,12 @@
 import Visitor from "../../domain/entities/visitor.entity";
-import visitorRepository, { VisitorRespository } from "../../infrastructure/repositories/visitor.Repository";
+import visitorRepository, { VisitorRepository } from "../../infrastructure/repositories/visitor.Repository";
 import createVisitorCommand from "../commands/create.visitor.command";
 
 class CreateVisitorHandler {
-    private visitorRepository: VisitorRespository;
+    private visitorRepository: VisitorRepository;
 
     public constructor(
-        visitorRepository: VisitorRespository,
+        visitorRepository: VisitorRepository,
     ){
         this.visitorRepository = visitorRepository;
     }
