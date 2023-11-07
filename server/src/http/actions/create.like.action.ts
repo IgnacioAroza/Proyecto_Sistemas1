@@ -4,10 +4,10 @@ import CreateLikeHandler from '../../application/handlers/create.like.handler'
 
 class CreateLikeAction {
     async run(req: Request, res: Response){
-        const { ownerId, likeCount, pin, claimId } = req.body;
+        const { ownerId, pin, claimId } = req.body;
 
         try {
-            const command = new CreateLikeCommand(ownerId, likeCount, pin, claimId);
+            const command = new CreateLikeCommand(ownerId, pin, claimId);
             await CreateLikeHandler.execute(command);
 
             return res.status(201).json({ message: 'Like created'});
