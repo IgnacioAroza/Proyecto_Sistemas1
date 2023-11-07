@@ -110,10 +110,6 @@ class Claim {
     return this.likeCount.includes(id);
   }
 
-  public hasVisitorDisliked(id: string): boolean {
-    return this.dislikeCount.includes(id)
-  }
-
   report(originalClaim: Claim) {
     if (this.createdAt.getTime() < originalClaim.createdAt.getTime()) {
       throw new Error('Original claim is older than duplicated claim');
