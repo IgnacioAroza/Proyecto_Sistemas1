@@ -20,6 +20,11 @@ class VisitorRepository {
         const visitor = this.visitor.find(a => a.getId() === id);
         return visitor ? visitor : null;
     }
+
+    public async findAll(): Promise<Visitor[]> {
+        const visitor = this.visitor;
+        return visitor;
+    }
 }
 
 export{VisitorRepository};

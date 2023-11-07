@@ -39,9 +39,7 @@ class CreateClaimHandler {
             command.getTitle(),
             command.getDescription(),
             category,
-            command.getLocation(),
-            // command.getLike(),
-            // command.getDislike()
+            command.getLocation()
         )
 
         await this.claimRepository.save(claim);
