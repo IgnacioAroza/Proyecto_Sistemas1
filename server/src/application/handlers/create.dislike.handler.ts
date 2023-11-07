@@ -30,7 +30,7 @@ class CreateDislikeHandler {
             throw new Error('Claim not found');
         }
     
-        claim.addDislike();
+        claim.addDislike(ownerId.getId());
         await this.claimRepository.save(claim);
     }
 }

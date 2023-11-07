@@ -22,6 +22,4 @@ class CreateVisitorHandler {
     }
 }
 
-export default new CreateVisitorHandler(
-    visitorRepository
-)
+export default new CreateVisitorHandler(visitorRepository);

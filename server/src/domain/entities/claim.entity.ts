@@ -95,7 +95,6 @@ class Claim {
   }
 
   public addDislike(id: string): void {
-
     this.dislikeCount.push(id)
   }
 
@@ -107,15 +106,19 @@ class Claim {
     return this.dislikeCount.length;
   }
 
-
   hasVisitorLiked(id: string) {
     return this.likeCount.includes(id);
+  }
+
+  public hasVisitorDisliked(id: string): boolean {
+    return this.dislikeCount.includes(id)
   }
 
   report(originalClaim: Claim) {
     if (this.createdAt.getTime() < originalClaim.createdAt.getTime()) {
       throw new Error('Original claim is older than duplicated claim');
     }
+    this.cloneOf = originalClaim;
   }
 }
 

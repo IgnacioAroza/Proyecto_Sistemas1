@@ -33,7 +33,6 @@ class CreateClaimHandler {
             throw new Error('Category does not exist');
         }
 
-        
 
         const claim = Claim.create(
             owner,
@@ -41,8 +40,8 @@ class CreateClaimHandler {
             command.getDescription(),
             category,
             command.getLocation(),
-            command.getLike(),
-            command.getDislike()
+            // command.getLike(),
+            // command.getDislike()
         )
 
         await this.claimRepository.save(claim);

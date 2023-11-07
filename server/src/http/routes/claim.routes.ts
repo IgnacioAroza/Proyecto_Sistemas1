@@ -5,6 +5,7 @@ import createLikeAction from 'http/actions/create.like.action';
 import getLastClaimsByVisitorAction from 'http/actions/get.last.claims.by.visitor.action';
 import findLastClaimsAction from 'http/actions/find.last.claims.action';
 import getOnfireclaimAction from 'http/actions/get.onfireclaim.action';
+import reportClaimAction from 'http/actions/report.claim.action';
 
 class ClaimRoutes extends CommonRoutes {
   public constructor(app: Application) {
@@ -13,9 +14,10 @@ class ClaimRoutes extends CommonRoutes {
 
   public setUpRoutes(): Application {
     this.app.post('/claim', createClaimAction.run);
-    this.app.put('claim/:id/like', createLikeAction.run);
+    this.app.put('/claim/:id/like', createLikeAction.run);
+    this.app.put('/claim/:id/report', reportClaimAction.run);
     this.app.get('/claim/visitor/:visitorId', getLastClaimsByVisitorAction.run);
-    this.app.get('cliam', findLastClaimsAction.run);
+    this.app.get('/claim', findLastClaimsAction.run);
     this.app.get('/claim/on-fire', getOnfireclaimAction.run);
     
     return this.app;

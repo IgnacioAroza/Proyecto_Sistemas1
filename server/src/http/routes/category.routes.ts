@@ -4,7 +4,7 @@ import GetCategoriesAction from '../actions/get.categories.action';
 
 class CategoryRoutes extends CommonRoutes {
   public constructor(app: Application) {
-    super(app, 'Booking');
+    super(app, 'Categories');
   }
 
   public setUpRoutes(): Application {
