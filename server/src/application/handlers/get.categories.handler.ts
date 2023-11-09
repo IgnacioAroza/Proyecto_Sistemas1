@@ -13,8 +13,8 @@ class GetCategoriesHandler {
 
     public async execute(command: getCategoriesCommand): Promise<void>{
         const category = Category.create(
-            command.getColor(),
-            command.getName()
+            command.getName(),
+            command.getColor()
         )
 
         await this.categoryRepository.save(category);
