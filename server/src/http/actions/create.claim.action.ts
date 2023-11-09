@@ -7,6 +7,10 @@ class CreateClaimAction {
       const { ownerId, title, description, categoryId, location, likeCount, dislikeCount } = req.body;
   
       try {
+        if(!ownerId || !title || !description || !categoryId || !location || !likeCount || !dislikeCount){
+          res.status(400).json({message: "Todos los campos son requeridos"});
+          return
+        }
         const command = new createClaimCommand(ownerId, title, description, categoryId, location, likeCount, dislikeCount);
         await createClaimHandler.execute(command);
   
