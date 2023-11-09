@@ -20,9 +20,6 @@ class CreateClaimHandler {
     }
 
     public async execute(command: CreateClaimCommand): Promise<void> {
-        if(!command.getCategory().includes(command.getOwner())){
-            throw new Error('Claim must be in claims list');
-        }
         const owner = await this.visitorRepository.findOneById(command.getOwner());
         if (!owner) {
             throw new Error('Owner does not exist');

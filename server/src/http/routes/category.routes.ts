@@ -8,7 +8,7 @@ class CategoryRoutes extends CommonRoutes {
   }
 
   public setUpRoutes(): Application {
-    this.app.post('/category', GetCategoriesAction.run);
+    this.app.get('/category', GetCategoriesAction.run);
     return this.app;
   }
 }
