@@ -1,16 +1,11 @@
 import { Request, Response } from 'express';
-import getCategoriesCommand from '../../application/commands/get.categories.command';
-import getCategoriesHandler from '../../application/handlers/get.categories.handler';
+import categoryRepository from '../../../src/infrastructure/repositories/category.repository';
 
-class CreateClaimAction {
-    async run(req: Request, res: Response) {
-      const { name, color } = req.body;
-
+class GetCategoriesAction {
+    async run(_req: Request, res: Response) {
       try {
-        const command = new getCategoriesCommand(name, color);
-        await getCategoriesHandler.execute(command);
-
-        return res.status(201).json({ message: 'Claim created successfully' });
+        const categories = await categoryRepository.getAll();
+        return res.status(201).json(categories);
       } catch (error) {
         const { message } = error as Error;
         return res.status(400).json({ message: message });
@@ -18,4 +13,4 @@ class CreateClaimAction {
     }
   }
 
-  export default new CreateClaimAction();
+export default new GetCategoriesAction();
