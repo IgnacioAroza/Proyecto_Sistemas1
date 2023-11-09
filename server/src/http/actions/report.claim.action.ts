@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ReportClaimCommand } from 'application/commands/report.claim.command';
+import { ReportClaimCommand } from '../../application/commands/report.claim.command';
 import reportClaimHandler  from '../../application/handlers/report.claim.handler';
 
 class ReportClaimAction {

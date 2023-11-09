@@ -1,7 +1,7 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
 import createVisitorAction from '../actions/create.visitor.action';
-import findVisitorAction from 'http/actions/find.visitor.action';
+import findVisitorAction from '../actions/find.visitor.action';
 
 class VisitorRoutes extends CommonRoutes {
   public constructor(app: Application) {

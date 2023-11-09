@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import claimRepository from "infrastructure/repositories/claim.repository";
-import visitorRespository from "infrastructure/repositories/visitor.Repository";
+import claimRepository from "../../infrastructure/repositories/claim.repository";
+import visitorRespository from "../../infrastructure/repositories/visitor.Repository";
 
 class getLastClaimsByVisitor {
     public async run(req: Request, res:Response){

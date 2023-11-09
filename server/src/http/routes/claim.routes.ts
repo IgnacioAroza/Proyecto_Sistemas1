@@ -1,11 +1,11 @@
 import { Application } from 'express';
 import CommonRoutes from './common.routes';
 import createClaimAction from '../actions/create.claim.action';
-import createLikeAction from 'http/actions/create.like.action';
-import getLastClaimsByVisitorAction from 'http/actions/get.last.claims.by.visitor.action';
-import findLastClaimsAction from 'http/actions/find.last.claims.action';
-import getOnfireclaimAction from 'http/actions/get.onfireclaim.action';
-import reportClaimAction from 'http/actions/report.claim.action';
+import createLikeAction from '../actions/create.like.action';
+import getLastClaimsByVisitorAction from '../actions/get.last.claims.by.visitor.action';
+import findLastClaimsAction from '../actions/find.last.claims.action';
+import getOnfireclaimAction from '../actions/get.onfireclaim.action';
+import reportClaimAction from '../actions/report.claim.action';
 
 class ClaimRoutes extends CommonRoutes {
   public constructor(app: Application) {

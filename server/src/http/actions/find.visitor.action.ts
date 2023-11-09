@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import visitorRepository from "infrastructure/repositories/visitor.Repository";
+import visitorRepository from "../../infrastructure/repositories/visitor.Repository";
 
 class FindVisitorAction {
     public async run(_req: Request, res: Response){
