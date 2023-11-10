@@ -14,7 +14,7 @@ class ClaimRoutes extends CommonRoutes {
 
   public setUpRoutes(): Application {
     this.app.post('/claim', createClaimAction.run);
-    this.app.put('/claim/:id/like', createLikeAction.run);
+    this.app.put('/claim/like', createLikeAction.run);
     this.app.put('/claim/:id/report', reportClaimAction.run);
     this.app.get('/claim/visitor/:visitorId', getLastClaimsByVisitorAction.run);
     this.app.get('/claim', findLastClaimsAction.run);
